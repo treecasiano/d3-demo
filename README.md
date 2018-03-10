@@ -1,4 +1,4 @@
-An interactive map of the counties in Oregon and measures of food access and poverty for the purposes of data exploration.
+D3 Demo for GEOG 575 Interactive Cartography and Geovisualization.
 
 NPM is used for front end package management. 
 
