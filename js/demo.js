@@ -1,5 +1,5 @@
 window.onload = function () {
-  var w = 975;
+  var w = 950;
   var h = 500;
 
   var cityPop = [
@@ -44,8 +44,8 @@ window.onload = function () {
   //color scale generator
   var color = d3.scaleLinear()
       .range([
-        "#e8ccde",
-        "#6e5166"
+        "#ff9ac9",
+        "#7c3a65"
       ])
       .domain([
         minPop,
