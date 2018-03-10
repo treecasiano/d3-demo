@@ -1,5 +1,5 @@
 window.onload = function () {
-  var w = 900;
+  var w = 975;
   var h = 500;
 
   var cityPop = [
@@ -64,7 +64,7 @@ window.onload = function () {
   var innerRect = container.append("rect")
       .datum(400)
       .attr('width', function (d) {
-        return d * 2;
+        return d * 2.15;
       })
       .attr('height', function (d) {
         return d;
@@ -114,6 +114,47 @@ window.onload = function () {
       .attr("transform", "translate(50, 0)")
       .call(yAxis);
 
-  // Using .append() after a data join will always create the same number of new elements as data values in the dataset.
+
+  var title = container.append("text")
+      .attr("class", "title")
+      .attr("text-anchor", "middle")
+      .attr("x", 450)
+      .attr("y", 30)
+      .text("City Populations");
+
+  var labels = container.selectAll(".labels")
+      .data(cityPop)
+      .enter()
+      .append("text")
+      .attr("class", "labels")
+      .attr("text-anchor", "left")
+      .attr("y", function(d){
+        //vertical position centered on each circle
+        return y(d.population);
+      });
+
+  //first line of label
+  var nameLine = labels.append("tspan")
+      .attr("class", "nameLine")
+      .attr("x", function(d,i){
+        //horizontal position to the right of each circle
+        return x(i) + Math.sqrt(d.population * 0.01 / Math.PI) + 5;
+      })
+      .text(function(d){
+        return d.city;
+      });
+
+  var format = d3.format(",");
+
+  //second line of label
+  var popLine = labels.append("tspan")
+      .attr("class", "popLine")
+      .attr("x", function(d,i){
+        return x(i) + Math.sqrt(d.population * 0.01 / Math.PI) + 5;
+      })
+      .attr("dy", "15") //vertical offset
+      .text(function(d){
+        return "Pop. " + format(d.population);
+      });
 };
 
