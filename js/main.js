@@ -72,7 +72,7 @@ window.onload = function () {
       .attr("class", "innerRect")
       .attr("x", 50)
       .attr("y", 50)
-      .style("fill", "#eee");
+      .style("fill", "#eeeeee");
 
 
   // since we want to create new elements based on our data array,
@@ -101,7 +101,7 @@ window.onload = function () {
       .style("fill", function(d, i){ //add a fill based on the color scale generator
         return color(d.population);
       })
-      .style("stroke", "#111"); //black circle stroke
+      .style("stroke", "#222"); //black circle stroke
 
 
   var yAxis = d3.axisLeft(y)
